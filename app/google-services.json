@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "557759576179",
+    "firebase_url": "https://appfarmacia-e2ef9-default-rtdb.firebaseio.com",
+    "project_id": "appfarmacia-e2ef9",
+    "storage_bucket": "appfarmacia-e2ef9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557759576179:android:4bb33ab34e2046b2f2d206",
+        "android_client_info": {
+          "package_name": "com.example.desafiopractico"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7LOprN3zzKEisugDJ_dT85L5YTimWCBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
