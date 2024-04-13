@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductosAdapter
+    //VARIABLE QUE CONTENDRA EL ARREGLO DE LOS PRODUCTOS AGREGADOS TEMPORALMENTE
+    val listaProductosTemp: MutableList<Producto> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,21 +29,25 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Crear y configurar el adaptador
-        adapter = ProductosAdapter(listaProductos)
+        adapter = ProductosAdapter(listaProductos, listaProductosTemp)
         recyclerView.adapter = adapter
         val fab: FloatingActionButton = findViewById(R.id.fab)
+        val fabShopping: FloatingActionButton = findViewById(R.id.second_fab)
+
         fab.setOnClickListener {
-            // Aquí puedes colocar el código que deseas ejecutar cuando se hace clic en el botón flotante
-            Log.d("MainActivity", "Botón flotante clickeado")
             val intent = Intent(this, ProductosAgregados::class.java)
+            startActivity(intent)
+        }
+
+        fabShopping.setOnClickListener {
+            TemporalProductsHolder.listaProductosTemp = listaProductosTemp
+            val intent = Intent(this, ProductosAgregadosTemp::class.java)
             startActivity(intent)
         }
     }
 
     // Método ficticio para obtener la lista de productos desde una fuente de datos
     private fun obtenerListaDeProductos(): List<Producto> {
-        // Aquí puedes obtener la lista de productos de tu fuente de datos (base de datos, API, etc.)
-        // Por ahora, devolvemos una lista de productos ficticia
         return listOf(
             Producto("Acetaminofen", 10.0, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmOUTrtklCwxEz-QauNSDUi5fXa7gGuRgHYjd_RV-C4w&s"),
             Producto("Palagrip", 15.0, "https://farmaciafurtuna7.com/cdn/shop/products/PALAGRIP.jpg?v=1660280674"),

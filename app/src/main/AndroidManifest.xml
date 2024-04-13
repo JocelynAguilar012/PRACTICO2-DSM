@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DESAFIOPRACTICO"
         tools:targetApi="31">
         <activity
+            android:name=".ProductosAgregadosTemp"
+            android:exported="false" />
+        <activity
             android:name=".ProductosAgregados"
             android:exported="false" />
         <activity

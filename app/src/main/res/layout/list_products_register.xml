@@ -12,14 +12,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/item_image_register"
             android:layout_width="match_parent"
             android:layout_height="194dp"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/item_title"
+            android:id="@+id/item_title_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -27,18 +27,12 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/item_Price"
+            android:id="@+id/item_Price_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textColor="@color/black"/>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Agregar" />
 
     </LinearLayout>
 

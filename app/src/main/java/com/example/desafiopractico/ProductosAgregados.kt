@@ -41,7 +41,7 @@ class ProductosAgregados : AppCompatActivity() {
                     }
                 }
                 // Actualizar la interfaz de usuario con los datos obtenidos
-                val adapter = ProductosAdapter(listaProductos)
+                val adapter = ProductosAgregadosAdapter(listaProductos)
                 recyclerView.adapter = adapter
                 recyclerView.layoutManager = LinearLayoutManager(this@ProductosAgregados)
             }

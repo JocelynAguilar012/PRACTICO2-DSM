@@ -13,7 +13,8 @@ import coil.load
 import com.example.desafiopractico.R
 import com.google.firebase.database.FirebaseDatabase
 
-class ProductosAdapter(private val productos: List<Producto>) : RecyclerView.Adapter<ProductosAdapter.ProductoViewHolder>() {
+class ProductosAdapter(private val productos: List<Producto>, private val productosTemp: MutableList<Producto>) : RecyclerView.Adapter<ProductosAdapter.ProductoViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_products, parent, false)
@@ -41,35 +42,13 @@ class ProductosAdapter(private val productos: List<Producto>) : RecyclerView.Ada
             // Cargar la imagen desde la URL utilizando Coil
             imagenImageView.load(producto.imagenUrl)
             // Obtener referencia a la base de datos
-            val database = FirebaseDatabase.getInstance()
-            val reference = database.getReference("productos")
+            //val database = FirebaseDatabase.getInstance()
+            //val reference = database.getReference("productos")
 
             masButton.setOnClickListener {
-                val nombreProducto = producto.nombre
-                val precioProducto = producto.precio
-                val urlImagenProducto = producto.imagenUrl
-                val producto = Producto(nombreProducto, precioProducto, urlImagenProducto)
-                // Generar una clave única para el producto
-                val productoId = reference.push().key
-
-                // Guardar el producto en la base de datos usando la clave única generada
-                if (productoId != null) {
-                    reference.child(productoId).setValue(producto)
-                        .addOnSuccessListener {
-                            // El producto se guardó exitosamente
-                            //Toast.makeText(this,"Se guardo con exito", Toast.LENGTH_SHORT).show()
-                            Log.d("Producto Guardado", "Producto Guardado")
-                        }
-                        .addOnFailureListener { e ->
-                            // Ocurrió un error al intentar guardar el producto
-                            //Toast.makeText(this,"Error", Toast.LENGTH_SHORT).show()
-                            Log.d("Error", "Error")
-                        }
-                } else {
-                    //Toast.makeText(this,"Error al generar una clave unica del producto", Toast.LENGTH_SHORT).show()
-                    Log.d("Error Clave", "Error Clave")
-                }
-                Log.d("ProductoSeleccionado", "Nombre: ${producto.nombre}, Precio: ${producto.precio}, URL Imagen: ${producto.imagenUrl}")
+                //AGREGAMOS EL PRODUCTO SELECCIONADO AL ARREGLO TEMPORAL
+                productosTemp.add(producto)
+                Toast.makeText(itemView.context, "Producto Agregado", Toast.LENGTH_SHORT).show()
             }
         }
     }
