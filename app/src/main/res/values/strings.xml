@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DESAFIOPRACTICO</string>
+    <string name="titulo">DESAFIO PRACTICO</string>
+    <string name="Ejer1">RESTAURANTE</string>
+    <string name="Ejer2">SALON DE BELLEZA</string>
+    <string name="Ejer3">FARMACIA</string>
 </resources>
